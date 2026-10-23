@@ -1,0 +1,33 @@
+schema: spec-driven
+
+context: |
+  Stack: Java 21, Spring Boot 3, Maven, PostgreSQL. REST API.
+  Clean architecture layers: domain (pure, no frameworks), application (use cases),
+  infrastructure (adapters), interfaces (thin controllers).
+  Dependencies point inward only: domain imports nothing from other layers.
+  Constructor injection for all collaborators; never field @Autowired.
+  TDD mandatory: test before implementation (red-green-refactor).
+  Testing: Gherkin for business requirements; unit tests JUnit 5 + Mockito in
+  domain and application; integration tests Spring Boot Test in interfaces/infrastructure.
+  Validation at the entry layer; business rules in domain.
+  English for code and artifacts.
+
+rules:
+  proposal:
+    - Name the affected layers (domain/application/infrastructure/interfaces)
+    - Always state what is out of scope
+  specs:
+    - Scenarios in Gherkin (Given/When/Then), one feature per capability
+  design:
+    - Assign each new class to a layer; keep domain free of framework imports
+  tasks:
+    - Test-first: each implementation task is preceded by its test task
+    - Tag every test task as unit or integration
+
+operations:
+  apply:
+    guidance:
+      - Run the new test failing before implementing; unit before integration
+  archive:
+    guidance:
+      - List test coverage added per level (Gherkin/unit/integration)
