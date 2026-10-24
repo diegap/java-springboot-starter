@@ -21,8 +21,8 @@ rules:
   design:
     - Assign each new class to a layer; keep domain free of framework imports
   tasks:
-    - Test-first: each implementation task is preceded by its test task
-    - Tag every test task as unit or integration
+    - "Test-first: each implementation task is preceded by its test task"
+    - "Tag every test task as unit or integration"
 
 operations:
   apply:
